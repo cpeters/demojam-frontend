@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.4.6/tailwind.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.7/dist/htmx.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@600;family=Lora:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+  <title>HTMX with Sinatra</title>
+
+  <style>
+    body {
+      background-color: #2E3440;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Rubik', sans-serif;
+      font-weight: 600;
+      padding-top: 80px;
+    }
+    .box {
+      <%# background-color: #355070ff; %>
+      <%# border-radius: 16px; %>
+      padding: 40px 60px;
+      <%# box-shadow: 0 8px 20px rgba(0,0,0,0.1); %>
+      text-align: center;
+      max-width: 900px;
+      width: 90%;
+    }
+    h1 {
+      color: #DF624A;
+      font-size: 5.5em;
+      margin: 0;
+      letter-spacing: 1.2px;
+      line-height: 1;
+    }
+    .box h1 {
+      margin-bottom: 48px;
+    }
+    .message-box {
+      background-color: #f0f0f0;
+      border-radius: 16px;
+      padding: 40px 60px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 800px;
+      width: 90%;
+      margin: 0 auto;
+    }
+    .message-box p {
+      margin: 0 0 24px 0;
+      font-size: 1.5em;
+      color: #333;
+    }
+    .quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2em;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+    .author {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .8em;
+      font-weight: 400;
+      color: #7f8c8d;
+      text-align: right;
+    }
+    button {
+      background-color: #EE0000;
+      border: none;
+      border-radius: 24px;
+      color: white;
+      font-size: 1.2em;
+      padding: 12px 36px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-weight: 600;
+      box-shadow: 0 4px 8px rgba(238, 0, 0, 0.3);
+      display: inline-block;
+    }
+    button:hover {
+      background-color: #cc0000;
+    }
+    button:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(238, 0, 0, 0.6); /* red glow */
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Demo Jam 2026</h1>
+    <div class="message-box" id="message-box">
+      <p id="message-content">No messages</p>
+      <button
+          hx-get="/quote"
+          hx-target="#message-content"
+          hx-swap="innerHTML"
+      >
+        New Quote
+      </button>
+    </div>
+  </div>
+</body>
+</html>
+

@@ -1,0 +1,6 @@
+source 'https://rubygems.org'
+gem 'sinatra', '~> 4.2'
+gem 'sinatra-reloader'
+gem 'rackup'
+gem 'puma', '~> 7.1'
+gem 'yaml'
